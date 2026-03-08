@@ -1,0 +1,135 @@
+.expense-list-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.el-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.el-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.el-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.el-search {
+  position: relative;
+}
+
+.el-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.el-filters {
+  padding: 16px;
+}
+
+.el-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.el-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  transition: border-color 0.2s;
+}
+.el-item:hover { border-color: var(--accent); }
+
+.el-item-cat {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.el-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.el-item-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.el-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.el-cat-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.el-date {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.el-notes {
+  font-size: 13px;
+  cursor: default;
+}
+
+.el-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.el-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.el-actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.el-item:hover .el-actions {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .el-actions { opacity: 1; }
+  .form-row { grid-template-columns: 1fr; }
+}
