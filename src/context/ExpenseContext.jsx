@@ -50,20 +50,18 @@ function reducer(state, action) {
   }
 }
 
-export function ExpenseProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return { ...initialState, ...JSON.parse(raw) };
+  } catch {
+    // ignore parse errors
+  }
+  return initialState;
+}
 
-  // Load from localStorage on mount
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        dispatch({ type: 'LOAD', payload: JSON.parse(raw) });
-      }
-    } catch {
-      // ignore parse errors
-    }
-  }, []);
+export function ExpenseProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, undefined, loadFromStorage);
 
   // Persist to localStorage on every change
   useEffect(() => {
